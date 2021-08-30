@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemonno server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node":"v14.17.5"
   }
 }
