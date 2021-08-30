@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 exports.homeRoute =(req,res)=>{
-    axios.get('https://crud-c.herokuapp.com:3000/api/users')
+    axios.get('https://crud-c.herokuapp.com/api/users')
    
     .then(function(response){
         console.log(response);
