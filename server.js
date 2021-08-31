@@ -7,14 +7,18 @@ const path = require('path')
 const app = express();
 dotenv.config({path:'config.env'})
 const connectDB = require('./server/database/connection')
-const http = require('http')
+
 //import dependences
-const routes = require('./server/routes/router')
+const routes = require('./server/routes/router');
+
+dotenv.config({path:'config.env'})
 
 
 
 
-const server =http.createServer(app);
+const PORT = process.env.PORT || 8080;
+    
+
 //log requests
 app.use(morgan('tiny'));
 
@@ -34,4 +38,4 @@ app.use('/img',express.static(path.resolve(__dirname,"assets/img")))
 app.use('/',routes)
 
 
-server.listen(process.env.PORT,()=>console.log("server is process"))
+app.listen(PORT,()=>console.log(`http://localhost:${process.env.PORT}`))
