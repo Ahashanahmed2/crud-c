@@ -13,7 +13,7 @@
         
       </tr>
     </thead>
-    <% for( let index = 0; index < user.length; index++ ) { %>
+    <% for( let index in user ) { %>
     
    
     <tbody class="tbody-light">
@@ -26,9 +26,9 @@
         
 
         <td class="d-flex justify-content-around">
-            <a class="bg-warning px-1" href="edit" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-edit"></i></a>
+            <a class="bg-warning px-1" href="/edit?id=<%= user[index]._id %> " rel="noopener noreferrer"><i class="fas fa-user-edit"></i></a>
 ||
-            <a class="bg-danger px-1" href="delete" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-times"></i></a>
+            <a class="bg-danger px-1 delete" title="<%= user[index].name %>"  id=<%= user[index]._id %> rel="noopener noreferrer"><i class="fas fa-user-times"></i></a>
         </td>
       </tr>
     

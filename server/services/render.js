@@ -1,14 +1,14 @@
 const axios = require('axios');
+const { response } = require('express');
 
 exports.homeRoute =(req,res)=>{
-    axios.get('/api/users')
+    axios.get('https://crud-c.herokuapp.com/api/users')
    
     .then(function(response){
-        console.log(response);
         res.render('index',{user:response.data})
     })
     .catch(err=>{
-        res.send({message:`not axios ${err}`})
+        res.send({message:` yes not axios ${err}`})
     })
     
 }
@@ -18,9 +18,13 @@ exports.newUser =(req,res)=>{
 }
 
 exports.edit = (req,res)=>{
-    res.render('edit')
+axios.get('https://crud-c.herokuapp.com/api/users',{params:{id:req.query.id}})
+.then(function(paramsdata){
+    res.render('edit',{users:paramsdata.data})
+})
+.catch(err =>{
+    res.send(err.message)
+})
+    
 }
 
-exports.delete =(req,res)=>{
-    res.render('delete')
-}

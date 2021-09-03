@@ -17,8 +17,7 @@ const user = new Userdb ({
 })
 
 //save user in the database
-user
-.save(user)
+user.save(user)
 .then(data=>{
     res.redirect('/')
 })
@@ -29,28 +28,28 @@ user
 
 //all users
 exports.find = (req,res)=>{
-    if(req.query.id){
-const id = req.query.id;
-Userdb.findById(id)
-.then(data=>{
-    if(!data){
-        res.status(404).send({message: `not Data this ${id}`})
-    }else{res.send(data)
-
-    }
-})
-.catch((err)=>{
-    res.send({message:`not findById : ${err}`})
-})
-    }else{
+   if(req.query.id){
+       const id = req.query.id ;
+       Userdb.findById(id)
+       .then(data =>{
+           if(!data){
+               res.status(404).send({message:"Not found user with id" + id})
+           }else{
+               res.send(data)
+           }
+       })
+       .catch(err =>{
+        res.status(500).send({message:"Erro retrieving user with id " + id})
+       })
+   }
         Userdb.find()
         .then(data =>{
             res.send(data)
         })
         .catch(err =>{
-            res.status(500).send({message:err.message || "find fale"})
+            res.status(500).send({message:err.message})
         })
-    }
+    
 
 }
 

@@ -11,7 +11,7 @@ const connectDB = require('./server/database/connection')
 //import dependences
 const routes = require('./server/routes/router');
 
-dotenv.config({path:'config.env'})
+
 
 
 

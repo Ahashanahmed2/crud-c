@@ -1,5 +1,3 @@
-
-const { render } = require('ejs');
 const express =require('express');
 const route  = express.Router();
 const service = require('../services/render')
